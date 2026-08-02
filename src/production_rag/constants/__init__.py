@@ -12,3 +12,9 @@ ALLOWED_EXTENSIONS = (
     ".pdf",
 )
 PDF_LOADER_ARTIFACT_DIR = "artifact/pdf_loader"
+
+#Chunker
+
+SEPARATOR_LIST = ("\n\n", "\n", " ", "")
+DEFAULT_CHUNK_SIZE = 1000
+DEFAULT_OVERLAP = 200
