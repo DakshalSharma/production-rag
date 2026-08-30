@@ -41,15 +41,7 @@ class EmbeddingGenerator:
                 )
             )
         return embeddings
-        
-        
 
-    # def _generate_embeddings(self, chunks: list[Chunk]) -> list[Embedding]:
-    #     embeddings: list[Embedding] = []
-    #     for chunk in chunks:
-    #         embedding = self._generate_embedding(chunk)
-    #         embeddings.append(embedding)
-    #     return embeddings
 
     def embed(self, chunks: list[Chunk]) -> list[Embedding]:
         logger.info("Starting embedding generation.")
@@ -63,3 +55,12 @@ class EmbeddingGenerator:
         except Exception as e:
             logger.exception("Embedding generation failed.")
             raise MyException("Embedding generation failed.", e) from e
+
+    def embed_query(self, query: str) -> list[float]:
+       if not query or not query.strip():
+           raise ValueError("Query cannot be empty.")
+       vector = self.model.encode(
+        query,
+        normalize_embeddings=True
+    )
+       return vector.tolist()
