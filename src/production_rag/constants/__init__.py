@@ -27,3 +27,6 @@ EMBEDDING_MODEL = "sentence-transformers/all-MiniLM-L6-v2"
 
 VECTOR_STORE_PATH = "artifacts/vector_store"
 COLLECTION_NAME = "documents"
+
+#llM
+LLM_MODEL = "Qwen/Qwen2.5-3B-Instruct"
